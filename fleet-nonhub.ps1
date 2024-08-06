@@ -14,3 +14,6 @@ $cluster2id = az aks show -n $cluster2 -g $group --query id -o tsv
 # Join the member clusters
 az fleet member create -g $group -f $fleet -n $cluster1 --member-cluster-id $cluster1id
 az fleet member create -g $group -f $fleet -n $cluster2 --member-cluster-id $cluster2id
+
+# list the fleet members
+az fleet member list -g $group -f $fleet -o table
