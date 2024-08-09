@@ -1,8 +1,7 @@
 # AKS Fleet Manager Overview
 
-Sure! Here's a summary explaining the differences between a hub and non-hub AKS Fleet Manager instance, along with a comparison chart:
+> This is a work in progress!
 
-## Summary
 Azure Kubernetes Fleet Manager (AKS Fleet Manager) allows for the management of multiple AKS clusters at scale. There are two types of AKS Fleet Manager instances: **hub** and **non-hub**.
 
 - **Non-Hub AKS Fleet Manager Instance** - This acts solely as a grouping entity in Azure Resource Manager (ARM) without a central hub. It supports update orchestration but lacks workload orchestration and layer-4 load balancing. It does not incur additional costs.
@@ -37,6 +36,10 @@ Azure Kubernetes Fleet Manager (AKS Fleet Manager) allows for the management of 
 ## Fleet Hub Update Stages and Groups
 
 ![](https://learn.microsoft.com/en-us/azure/kubernetes-fleet/media/conceptual-update-orchestration.png#lightbox)
+
+### Definitions
+
+- **Update Run** - Represents an update that is to be applied to a collection of AKS clusters
 
 ## Links
 
