@@ -14,6 +14,8 @@ az fleet member create -g $group -f $fleet -n $cluster2 --member-cluster-id $clu
 # list the fleet members
 az fleet member list -g $group -f $fleet -o table
 
-# get credentials
-az fleet get-credentials -n $fleet -g $group
-kubelogin convert-kubeconfig -l azurecli
+# Create role assignment ("Azure Kubernetes Fleet Manager RBAC Cluster Admin")
+fleetId=$(az fleet show -n $fleet -g $group --query id -o tsv | tr -d '\r')
+myId=$(az ad signed-in-user show --query id -o tsv | tr -d '\r')
+role="Azure Kubernetes Fleet Manager RBAC Cluster Admin"
+az role assignment create --assignee $myId --role "$role" --scope $fleetId

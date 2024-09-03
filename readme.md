@@ -64,7 +64,7 @@ Azure Kubernetes Fleet Manager (AKS Fleet Manager) allows for the management of 
     ```
 1. Create 2 AKS clusters by running: 
     ```
-    ./create-cluster.sh
+    ./create-clusters.sh
     ```
 1. Next create Fleet Manager Hub and add AKS clusters as cluster members using:
     ```

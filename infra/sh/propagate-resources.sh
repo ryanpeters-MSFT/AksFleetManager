@@ -1,5 +1,5 @@
 # Get the credentials to log into the hub cluster 
-az aks get-credentials -g $group --name $fleet
+az fleet get-credentials -n $fleet -g $group --overwrite-existing
 
 # Log into cluster using kubelogin
 kubelogin convert-kubeconfig -l azurecli
