@@ -41,6 +41,60 @@ Azure Kubernetes Fleet Manager (AKS Fleet Manager) allows for the management of 
 
 - **Update Run** - Represents an update that is to be applied to a collection of AKS clusters
 
+## Prerequisites
+
+- [az cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+- `kubectl` and `kubelogin`:
+  - Windows/Linux: `az aks install-cli`
+
+## Setup
+
+1. Open shell terminal
+1. Clone this git repository using: 
+    ```
+    git clone <this repo url>
+    ```
+1. Change directory: 
+    ```
+    cd AksFleetManager/infra/sh
+    ```
+1. Export required environment variables: 
+    ```
+    source ./vars.sh
+    ```
+1. Create 2 AKS clusters by running: 
+    ```
+    ./create-cluster.sh
+    ```
+1. Next create Fleet Manager Hub and add AKS clusters as cluster members using:
+    ```
+    ./create-fleet-hub.sh
+    ```
+
+## Use Case 1: Update AKS clusters in fleet hub
+
+1. Use the following script to update the AKS version to 1.30.1 (based on value in `vars.sh`) for
+   both control plane and worker nodes (full) of the member clusters in the fleet hub:
+   ```
+   ./update-fleet-hub.sh
+   ```
+
+## Use Case 2: Propagate resources to cluster member in fleet hub
+
+1. Use the following script to create a "cluster resource placement" resource.
+   The script then deploys a workload which will get propagated to all resources specified 
+   in the resource placement.
+   ```
+   ./propagate-resources.sh
+   ```
+
+## Cleanup
+
+1. Delete resource group using:
+   ```
+   az group delete -g $group
+   ```
+
 ## Links
 
 - [Fleet - Github](https://github.com/Azure/fleet)
