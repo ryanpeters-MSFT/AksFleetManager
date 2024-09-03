@@ -7,7 +7,6 @@ spec:
     placementType: PickFixed
     clusterNames:
       - "demo3cluster"
-      - "demo4cluster"
   resourceSelectors:
     - group: ''
       kind: Namespace
