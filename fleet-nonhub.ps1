@@ -8,6 +8,7 @@ $fleet = "fleetnonhub"
 # create the non-hub fleet manager
 az fleet create -g $group -n $fleet -l eastus2
 
+# get the cluster IDs
 $cluster1id = az aks show -n $cluster1 -g $group --query id -o tsv
 $cluster2id = az aks show -n $cluster2 -g $group --query id -o tsv
 

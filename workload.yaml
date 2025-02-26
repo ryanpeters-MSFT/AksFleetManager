@@ -39,23 +39,23 @@ spec:
     targetPort: 80
   selector:
     app: dockerdemo
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: dockerdemo
-  namespace: apps
-  # annotations:
-  #   appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
-spec:
-  ingressClassName: nginx
-  rules:
-  - http:
-      paths:
-      - path: /
-        backend:
-          service:
-            name: dockerdemo
-            port:
-              number: 80
-        pathType: Prefix
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: dockerdemo
+#   namespace: apps
+#   # annotations:
+#   #   appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - http:
+#       paths:
+#       - path: /
+#         backend:
+#           service:
+#             name: dockerdemo
+#             port:
+#               number: 80
+#         pathType: Prefix

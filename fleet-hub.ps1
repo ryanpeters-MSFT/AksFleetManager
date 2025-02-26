@@ -5,6 +5,7 @@ $fleet = "fleethub"
 # create the hub fleet manager (using --enable-hub)
 az fleet create -g $group -n $fleet -l eastus2 --enable-hub
 
+# get the cluster IDs
 $cluster3id = az aks show -n $cluster3 -g $group --query id -o tsv
 $cluster4id = az aks show -n $cluster4 -g $group --query id -o tsv
 
