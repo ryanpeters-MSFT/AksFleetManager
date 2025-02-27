@@ -87,6 +87,22 @@ After this workload is deployed, the resources are only applied to the docker4de
 
 - **MultiClusterService** - Used to manage and expose services across multiple clusters within the fleet. It facilitates the seamless routing of traffic to the appropriate cluster, enabling consistent and reliable service access across the entire fleet.
 
+To view the resources in the cluster, invoke the following commands:
+
+```powershell
+# list member cluster CRD resources
+kubectl get memberclusters
+
+# list the custom placements
+kubectl get clusterresourceplacements
+
+# list the multi-cluster services
+kubectl get multiclusterservices
+
+# list fleet-specific resources
+kubectl api-resources | findstr /c:fleet /i
+```
+
 
 ## Fleet Hub Update Stages and Groups
 

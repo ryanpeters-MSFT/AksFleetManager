@@ -1,0 +1,27 @@
+apiVersion: networking.fleet.azure.com/v1alpha1
+kind: MultiClusterService
+metadata:
+  name: dockerdemo-mcs
+  namespace: apps
+spec:
+  serviceImport:
+    name: dockerdemo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dockerdemo
+  namespace: apps
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: dockerdemo
+---
+apiVersion: networking.fleet.azure.com/v1alpha1
+kind: ServiceExport
+metadata:
+  name: dockerdemo
+  namespace: apps
