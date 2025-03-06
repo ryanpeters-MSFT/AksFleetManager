@@ -19,9 +19,7 @@ At this point, there are 2 Fleet instances with 2 AKS member clusters attached t
 
 ### Non-Hub Cluster
 
-This cluster type contains the first two AKS member clusters.
-
-*TBD*
+The non-hub fleet manager in Azure is a configuration of Azure Kubernetes Fleet Manager that lets you group and manage multiple AKS clusters primarily for update orchestration—such as scheduling Kubernetes version and node image upgrades—without deploying a dedicated hub cluster. This simpler, hub-less setup streamlines update management by organizing clusters into update groups and monitoring their version states, while advanced features like resource propagation and multi-cluster load balancing are available only when a hub cluster is enabled.
 
 ### Hub Cluster
 
