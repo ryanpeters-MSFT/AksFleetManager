@@ -1,12 +1,21 @@
 # AKS Fleet Manager Overview
 
-> This is a work in progress!
-
 Azure Kubernetes Fleet Manager (AKS Fleet Manager) allows for the management of multiple AKS clusters at scale. There are two types of AKS Fleet Manager instances: **hub** and **non-hub**.
 
 - **Non-Hub AKS Fleet Manager Instance** - This acts solely as a grouping entity in Azure Resource Manager (ARM) without a central hub. It supports update orchestration but lacks workload orchestration and layer-4 load balancing. It does not incur additional costs.
 
 - **Hub AKS Fleet Manager Instance** - This includes a managed AKS cluster that acts as a central hub. It stores and propagates Kubernetes resources, orchestrates workloads, and provides layer-4 load balancing. It incurs additional costs associated with the hub cluster.
+
+## Comparison Chart
+
+| Feature                        | Hub AKS Fleet Manager Instance | Non-Hub AKS Fleet Manager Instance |
+|--------------------------------|--------------------------------|------------------------------------|
+| **Hub Cluster Hosting**        | ✅                              | ❌                                  |
+| **Update Orchestration**       | ✅                              | ✅                                  |
+| **Workload Orchestration**     | ✅                              | ❌                                  |
+| **Layer-4 Load Balancing**     | ✅                              | ❌                                  |
+| **Billing Considerations**     | Costs associated with the hub  | No additional cost                 |
+| **Conversion**                 | Cannot be downgraded           | Can be upgraded                    |
 
 ## Quickstart
 
@@ -88,17 +97,6 @@ kubectl delete -f workload.yaml
 After this workload is deployed, the resources are only applied to the docker4demo member cluster.
 
 In addition, resources can be placed onto a specific set of clusters using the `spec.policy.placementType` value of "PickFixed" and supplying a list of `clusterNames`. See [clusterresourceplacement-fixed.yaml](./clusterresourceplacement-fixed.yaml) for an example.
-
-## Comparison Chart
-
-| Feature                        | Hub AKS Fleet Manager Instance | Non-Hub AKS Fleet Manager Instance |
-|--------------------------------|--------------------------------|------------------------------------|
-| **Hub Cluster Hosting**        | ✅                              | ❌                                  |
-| **Update Orchestration**       | ✅                              | ✅                                  |
-| **Workload Orchestration**     | ✅                              | ❌                                  |
-| **Layer-4 Load Balancing**     | ✅                              | ❌                                  |
-| **Billing Considerations**     | Costs associated with the hub  | No additional cost                 |
-| **Conversion**                 | Cannot be downgraded           | Can be upgraded                    |
 
 ## Agents Installed 
 
