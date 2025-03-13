@@ -6,36 +6,36 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dockerdemo
+  name: echo
   namespace: apps
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: dockerdemo
+      app: echo
   strategy: {}
   template:
     metadata:
       labels:
-        app: dockerdemo
+        app: echo
     spec:
       containers:
-      - image: binarydad/dockerdemo:latest
-        name: dockerdemo
+      - image: mendhak/http-https-echo:24
+        name: echo
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         resources: {}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: dockerdemo
+  name: echo
   namespace: apps
 spec:
   type: LoadBalancer
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
-    app: dockerdemo
+    app: echo
