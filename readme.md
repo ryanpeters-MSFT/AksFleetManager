@@ -138,5 +138,8 @@ kubectl api-resources | findstr /c:fleet /i
 
 ## Links
 
+- [Azure Kubernetes Fleet Manager and member clusters](https://learn.microsoft.com/en-us/azure/kubernetes-fleet/concepts-fleet)
+- [Choosing an Azure Kubernetes Fleet Manager option](https://learn.microsoft.com/en-us/azure/kubernetes-fleet/concepts-choosing-fleet)
 - [Fleet - Github](https://github.com/Azure/fleet)
 - [Fleet Networking - Github](https://github.com/Azure/fleet-networking)
+- [Intelligent cross-cluster Kubernetes resource placement using Azure Kubernetes Fleet Manager](https://learn.microsoft.com/en-us/azure/kubernetes-fleet/intelligent-resource-placement)
