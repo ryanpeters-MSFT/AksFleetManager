@@ -4,16 +4,20 @@ metadata:
   name: appscrp
 spec:
   policy:
-    placementType: PickAll
+    placementType: PickN
+    numberOfClusters: 1
     affinity:
       clusterAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           clusterSelectorTerms:
-            - labelSelector:
-                matchLabels:
-                  env: prod
+            - propertySelector:
+                matchExpressions:
+                  - name: kubernetes-fleet.io/node-count
+                    operator: Eq
+                    values:
+                      - "1"
   resourceSelectors:
-    - group: ''
+    - group: ""
       kind: Namespace
       name: apps
       version: v1
